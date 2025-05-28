@@ -4,16 +4,16 @@ USE ameibbou;
 CREATE TABLE responsavel (
     id_responsavel INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
-    email VARCHAR(45) UNIQUE,
+    telefone CHAR(11) UNIQUE,
     senha_responsavel VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE usuario (
     id_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome_usuario VARCHAR(45),
-    idade INT NOT NULL,
-    email VARCHAR(45) UNIQUE,
-    senha_usuario VARCHAR(255) NOT NULL,
+    data_nascimento INT NOT NULL,
+    genero varchar(20) UNIQUE,
+    hiperfoco varchar(45),
     id_responsavel INT,
     FOREIGN KEY (id_responsavel) REFERENCES responsavel(id_responsavel)
 );
