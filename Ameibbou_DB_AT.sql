@@ -1,18 +1,19 @@
 CREATE DATABASE ameibbou;
 USE ameibbou;
 
-CREATE TABLE responsavel (
+CREATE TABLE responsaveis (
     id_responsavel INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
-    telefone CHAR(11) UNIQUE,
+    email VARCHAR(100) UNIQUE,
+    
     senha_responsavel VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE usuario (
+CREATE TABLE criancas (
     id_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome_usuario VARCHAR(45),
-    data_nascimento INT NOT NULL,
-    genero varchar(20) UNIQUE,
+    data_nascimento DATE NOT NULL,
+    genero varchar(20),
     hiperfoco varchar(45),
     id_responsavel INT,
     FOREIGN KEY (id_responsavel) REFERENCES responsavel(id_responsavel)
@@ -31,7 +32,7 @@ CREATE TABLE usuario_personagem (
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
 
-CREATE TABLE progresso_jogo (
+CREATE TABLE progresso (
     id_progresso INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
     id_jogo INT NOT NULL,
